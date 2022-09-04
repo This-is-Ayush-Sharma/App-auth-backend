@@ -12,7 +12,15 @@ exports.register = async(req,res)=>{
             password:await crypt.Encrypt(password),
             status:"INACTIVE"
         });
-        
+        let otp = await otpgen.gen();
+        await Otp.create({
+            email:email,
+            code:otp
+        })
+        sendOtp({
+            email,
+            otp
+        })
         res.json({
             status:"success",
             message:"Registration Done."
