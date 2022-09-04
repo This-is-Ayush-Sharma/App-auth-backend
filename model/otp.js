@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const opt = mongoose.Schema({
+const otp = mongoose.Schema({
     email:{
         type:String,
         require:true
@@ -9,6 +9,6 @@ const opt = mongoose.Schema({
         type:String,
         require:true
     }
-})
+});
 
 module.export = mongoose.model('otpData',otp);
